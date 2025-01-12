@@ -1,0 +1,730 @@
+2025-01-11 03:05:14 postgres_entrypoint  | [NOTICE]   (1) : New worker (7) forked
+2025-01-11 03:05:14 postgres_entrypoint  | [NOTICE]   (1) : Loading success.
+2025-01-11 03:05:15 postgres_entrypoint  | [WARNING]  (7) : Server postgres/pg_master is DOWN, reason: Layer4 connection problem, info: "Connection refused", check duration: 1005ms. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2025-01-11 03:05:17 postgres_entrypoint  | [WARNING]  (7) : Server postgres/pg_slave is DOWN, reason: Layer4 connection problem, info: "Connection refused", check duration: 1048ms. 0 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2025-01-11 03:05:17 postgres_entrypoint  | [ALERT]    (7) : proxy 'postgres' has no server available!
+2025-01-11 03:06:07 postgres_entrypoint  | [NOTICE]   (1) : haproxy version is 3.0.7-ce35390
+2025-01-11 03:06:07 postgres_entrypoint  | [NOTICE]   (1) : path to executable is /usr/local/sbin/haproxy
+2025-01-11 03:06:07 postgres_entrypoint  | [WARNING]  (1) : Exiting Master process...
+2025-01-11 03:06:07 postgres_entrypoint  | [WARNING]  (7) : Proxy stats stopped (cumulated conns: FE: 0, BE: 0).
+2025-01-11 03:06:07 postgres_entrypoint  | [WARNING]  (7) : Proxy postgres stopped (cumulated conns: FE: 0, BE: 0).
+2025-01-11 03:06:07 postgres_entrypoint  | [WARNING]  (1) : Exiting Master process...
+2025-01-11 03:06:09 postgres_entrypoint  | [WARNING]  (1) : Current worker (7) exited with code 0 (Exit)
+2025-01-11 03:06:09 postgres_entrypoint  | [WARNING]  (1) : All workers exited. Exiting... (0)
+2025-01-11 03:06:13 postgres_entrypoint  | [NOTICE]   (1) : New worker (8) forked
+2025-01-11 03:06:13 postgres_entrypoint  | [NOTICE]   (1) : Loading success.
+2025-01-11 03:06:13 postgres_entrypoint  | [WARNING]  (8) : Server postgres/pg_master is DOWN, reason: Layer7 wrong status, code: 503, info: "Service Unavailable", check duration: 12ms. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2025-01-11 03:06:14 postgres_entrypoint  | [WARNING]  (8) : Server postgres/pg_slave is DOWN, reason: Layer7 wrong status, code: 503, info: "Service Unavailable", check duration: 15ms. 0 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2025-01-11 03:06:14 postgres_entrypoint  | [ALERT]    (8) : proxy 'postgres' has no server available!
+2025-01-11 03:06:19 postgres_entrypoint  | [WARNING]  (8) : Server postgres/pg_master is UP, reason: Layer7 check passed, code: 200, check duration: 5ms. 1 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+2025-01-11 03:13:57 postgres_entrypoint  | [WARNING]  (8) : Server postgres/pg_master is DOWN, reason: Layer4 timeout, check duration: 3001ms. 0 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.
+2025-01-11 03:13:57 postgres_entrypoint  | [ALERT]    (8) : proxy 'postgres' has no server available!
+2025-01-11 03:14:17 postgres_entrypoint  | [WARNING]  (8) : Server postgres/pg_slave is UP, reason: Layer7 check passed, code: 200, check duration: 3ms. 1 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+2025-01-11 03:06:12 pg-slave             | 2025-01-10 20:06:12,561 INFO: Connecting to zoo(172.20.0.2):2181, use_ssl: False
+2025-01-11 03:06:12 pg-slave             | 2025-01-10 20:06:12,808 INFO: Zookeeper connection established, state: CONNECTED
+2025-01-11 03:06:12 pg-slave             | 2025-01-10 20:06:12,878 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2025-01-11 03:06:13 pg-slave             | 2025-01-10 20:06:13,364 INFO: Lock owner: None; I am postgresql1
+2025-01-11 03:06:13 pg-slave             | 2025-01-10 20:06:13,380 ERROR: Failed to create /service/my_cluster/initialize
+2025-01-11 03:06:13 pg-slave             | Traceback (most recent call last):
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/patroni/dcs/zookeeper.py", line 295, in _create
+2025-01-11 03:06:13 pg-slave             |     self._client.retry(self._client.create, path, value, makepath=True, ephemeral=ephemeral)
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/kazoo/client.py", line 372, in _retry
+2025-01-11 03:06:13 pg-slave             |     return self._retry.copy()(*args, **kwargs)
+2025-01-11 03:06:13 pg-slave             |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/kazoo/retry.py", line 132, in __call__
+2025-01-11 03:06:13 pg-slave             |     return func(*args, **kwargs)
+2025-01-11 03:06:13 pg-slave             |            ^^^^^^^^^^^^^^^^^^^^^
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/kazoo/client.py", line 1007, in create
+2025-01-11 03:06:13 pg-slave             |     ).get()
+2025-01-11 03:06:13 pg-slave             |       ^^^^^
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/kazoo/handlers/utils.py", line 78, in get
+2025-01-11 03:06:13 pg-slave             |     raise self._exception
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/kazoo/handlers/utils.py", line 299, in captured_function
+2025-01-11 03:06:13 pg-slave             |     return function(*args, **kwargs)
+2025-01-11 03:06:13 pg-slave             |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/kazoo/handlers/utils.py", line 320, in captured_function
+2025-01-11 03:06:13 pg-slave             |     value = function(*args, **kwargs)
+2025-01-11 03:06:13 pg-slave             |             ^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/kazoo/client.py", line 1085, in create_completion
+2025-01-11 03:06:13 pg-slave             |     return self.unchroot(result.get())
+2025-01-11 03:06:13 pg-slave             |                          ^^^^^^^^^^^^
+2025-01-11 03:06:13 pg-slave             |   File "/opt/patroni-venv/lib/python3.11/site-packages/kazoo/handlers/utils.py", line 72, in get
+2025-01-11 03:06:13 pg-slave             |     raise self._exception
+2025-01-11 03:06:13 pg-slave             | kazoo.exceptions.NodeExistsError
+2025-01-11 03:06:13 pg-slave             | 2025-01-10 20:06:13,417 INFO: failed to acquire initialize lock
+2025-01-11 03:06:22 pg-slave             | 2025-01-10 20:06:22,971 INFO: Lock owner: postgresql0; I am postgresql1
+2025-01-11 03:06:22 pg-slave             | 2025-01-10 20:06:22,973 INFO: trying to bootstrap from leader 'postgresql0'
+2025-01-11 03:06:23 pg-slave             | WARNING:  skipping special file "./.s.PGSQL.5432"
+2025-01-11 03:06:23 pg-slave             | WARNING:  skipping special file "./.s.PGSQL.5432"
+2025-01-11 03:06:23 pg-slave             | 2025-01-10 20:06:23,899 INFO: replica has been created using basebackup
+2025-01-11 03:06:23 pg-slave             | 2025-01-10 20:06:23,903 INFO: bootstrapped from leader 'postgresql0'
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24,309 INFO: postmaster pid=25
+2025-01-11 03:06:24 pg-slave             | localhost:5432 - no response
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.377 UTC [25] LOG:  starting PostgreSQL 15.9 (Debian 15.9-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.377 UTC [25] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.379 UTC [25] LOG:  listening on Unix socket "./.s.PGSQL.5432"
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.382 UTC [29] LOG:  database system was interrupted; last known up at 2025-01-10 20:06:23 UTC
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.451 UTC [29] LOG:  entering standby mode
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.452 UTC [29] LOG:  starting backup recovery with redo LSN 0/2000028, checkpoint LSN 0/2000060, on timeline ID 1
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.454 UTC [29] LOG:  redo starts at 0/2000028
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.455 UTC [29] LOG:  completed backup recovery with redo LSN 0/2000028 and end LSN 0/2000100
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.455 UTC [29] LOG:  consistent recovery state reached at 0/2000100
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.455 UTC [25] LOG:  database system is ready to accept read-only connections
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.469 UTC [31] FATAL:  could not start WAL streaming: ERROR:  replication slot "postgresql1" does not exist
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.483 UTC [32] FATAL:  could not start WAL streaming: ERROR:  replication slot "postgresql1" does not exist
+2025-01-11 03:06:24 pg-slave             | 2025-01-10 20:06:24.483 UTC [29] LOG:  waiting for WAL to become available at 0/3000018
+2025-01-11 03:06:25 pg-slave             | localhost:5432 - accepting connections
+2025-01-11 03:06:25 pg-slave             | localhost:5432 - accepting connections
+2025-01-11 03:06:25 pg-slave             | 2025-01-10 20:06:25,405 INFO: Reaped pid=37, exit status=0
+2025-01-11 03:06:25 pg-slave             | 2025-01-10 20:06:25,406 INFO: Lock owner: postgresql0; I am postgresql1
+2025-01-11 03:06:25 pg-slave             | 2025-01-10 20:06:25,406 INFO: establishing a new patroni heartbeat connection to postgres
+2025-01-11 03:06:25 pg-slave             | 2025-01-10 20:06:25,453 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:06:26 pg-slave             | 2025-01-10 20:06:26,645 INFO: establishing a new patroni restapi connection to postgres
+2025-01-11 03:06:29 pg-slave             | 2025-01-10 20:06:29.544 UTC [43] LOG:  started streaming WAL from primary at 0/3000000 on timeline 1
+2025-01-11 03:06:35 pg-slave             | 2025-01-10 20:06:35,444 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:06:45 pg-slave             | 2025-01-10 20:06:45,437 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:06:55 pg-slave             | 2025-01-10 20:06:55,443 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:07:05 pg-slave             | 2025-01-10 20:07:05,431 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:07:15 pg-slave             | 2025-01-10 20:07:15,437 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:07:25 pg-slave             | 2025-01-10 20:07:25,430 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:07:35 pg-slave             | 2025-01-10 20:07:35,441 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:07:45 pg-slave             | 2025-01-10 20:07:45,428 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:07:55 pg-slave             | 2025-01-10 20:07:55,444 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:08:05 pg-slave             | 2025-01-10 20:08:05,433 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:08:15 pg-slave             | 2025-01-10 20:08:15,438 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:08:25 pg-slave             | 2025-01-10 20:08:25,435 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:08:35 pg-slave             | 2025-01-10 20:08:35,432 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:08:45 pg-slave             | 2025-01-10 20:08:45,429 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:02:43 zoo                  | ===> User
+2025-01-11 03:02:43 zoo                  | uid=1000(appuser) gid=1000(appuser) groups=1000(appuser)
+2025-01-11 03:02:43 zoo                  | ===> Configuring ...
+2025-01-11 03:02:49 zoo                  | ===> Running preflight checks ... 
+2025-01-11 03:02:49 zoo                  | ===> Check if /var/lib/zookeeper/data is writable ...
+2025-01-11 03:02:50 zoo                  | ===> Check if /var/lib/zookeeper/log is writable ...
+2025-01-11 03:02:51 zoo                  | ===> Launching ... 
+2025-01-11 03:02:51 zoo                  | ===> Launching zookeeper ... 
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,465] INFO Reading configuration from: /etc/kafka/zookeeper.properties (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,487] INFO clientPortAddress is 0.0.0.0:2181 (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,487] INFO secureClientPort is not set (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,487] INFO observerMasterPort is not set (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,487] INFO metricsProvider.className is org.apache.zookeeper.metrics.impl.DefaultMetricsProvider (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,497] INFO autopurge.snapRetainCount set to 3 (org.apache.zookeeper.server.DatadirCleanupManager)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,498] INFO autopurge.purgeInterval set to 0 (org.apache.zookeeper.server.DatadirCleanupManager)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,498] INFO Purge task is not scheduled. (org.apache.zookeeper.server.DatadirCleanupManager)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,498] WARN Either no config or no quorum defined in config, running in standalone mode (org.apache.zookeeper.server.quorum.QuorumPeerMain)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,501] INFO Log4j 1.2 jmx support not found; jmx disabled. (org.apache.zookeeper.jmx.ManagedUtil)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,503] INFO Reading configuration from: /etc/kafka/zookeeper.properties (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,505] INFO clientPortAddress is 0.0.0.0:2181 (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,505] INFO secureClientPort is not set (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,505] INFO observerMasterPort is not set (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,505] INFO metricsProvider.className is org.apache.zookeeper.metrics.impl.DefaultMetricsProvider (org.apache.zookeeper.server.quorum.QuorumPeerConfig)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,505] INFO Starting server (org.apache.zookeeper.server.ZooKeeperServerMain)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,552] INFO ServerMetrics initialized with provider org.apache.zookeeper.metrics.impl.DefaultMetricsProvider@1b083826 (org.apache.zookeeper.server.ServerMetrics)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,563] INFO ACL digest algorithm is: SHA1 (org.apache.zookeeper.server.auth.DigestAuthenticationProvider)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,564] INFO zookeeper.DigestAuthenticationProvider.enabled = true (org.apache.zookeeper.server.auth.DigestAuthenticationProvider)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,572] INFO zookeeper.snapshot.trust.empty : false (org.apache.zookeeper.server.persistence.FileTxnSnapLog)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,620] INFO  (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,621] INFO   ______                  _                                           (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,621] INFO  |___  /                 | |                                          (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,622] INFO     / /    ___     ___   | | __   ___    ___   _ __     ___   _ __    (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,622] INFO    / /    / _ \   / _ \  | |/ /  / _ \  / _ \ | '_ \   / _ \ | '__| (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,622] INFO   / /__  | (_) | | (_) | |   <  |  __/ |  __/ | |_) | |  __/ | |     (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,622] INFO  /_____|  \___/   \___/  |_|\_\  \___|  \___| | .__/   \___| |_| (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,622] INFO                                               | |                      (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,622] INFO                                               |_|                      (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,622] INFO  (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,645] INFO Server environment:zookeeper.version=3.8.4-9316c2a7a97e1666d8f4593f34dd6fc36ecc436c, built on 2024-02-12 22:16 UTC (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,646] INFO Server environment:host.name=zoo (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,646] INFO Server environment:java.version=17.0.12 (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,647] INFO Server environment:java.vendor=Azul Systems, Inc. (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,648] INFO Server environment:java.home=/usr/lib/jvm/java-17-zulu-openjdk-ca (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,650] INFO Server environment:java.class.path=/usr/bin/../share/java/kafka/kafka-streams-examples-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jetty-util-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/connect-transforms-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/connect-api-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/osgi-resource-locator-1.0.3.jar:/usr/bin/../share/java/kafka/jetty-server-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/hk2-api-2.6.1.jar:/usr/bin/../share/java/kafka/kafka-group-coordinator-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/netty-transport-native-unix-common-4.1.110.Final.jar:/usr/bin/../share/java/kafka/snappy-java-1.1.10.5.jar:/usr/bin/../share/java/kafka/kafka-tools-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/netty-buffer-4.1.110.Final.jar:/usr/bin/../share/java/kafka/kafka-server-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/commons-cli-1.4.jar:/usr/bin/../share/java/kafka/hk2-locator-2.6.1.jar:/usr/bin/../share/java/kafka/activation-1.1.1.jar:/usr/bin/../share/java/kafka/jersey-common-2.39.1.jar:/usr/bin/../share/java/kafka/connect-mirror-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/metrics-core-2.2.0.jar:/usr/bin/../share/java/kafka/netty-handler-4.1.110.Final.jar:/usr/bin/../share/java/kafka/javassist-3.29.2-GA.jar:/usr/bin/../share/java/kafka/aopalliance-repackaged-2.6.1.jar:/usr/bin/../share/java/kafka/protobuf-java-3.23.4.jar:/usr/bin/../share/java/kafka/scala-collection-compat_2.13-2.10.0.jar:/usr/bin/../share/java/kafka/jackson-core-2.16.2.jar:/usr/bin/../share/java/kafka/jackson-jaxrs-base-2.16.2.jar:/usr/bin/../share/java/kafka/jetty-util-ajax-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/lz4-java-1.8.0.jar:/usr/bin/../share/java/kafka/netty-resolver-4.1.110.Final.jar:/usr/bin/../share/java/kafka/commons-digester-2.1.jar:/usr/bin/../share/java/kafka/jetty-io-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/reflections-0.10.2.jar:/usr/bin/../share/java/kafka/reload4j-1.2.25.jar:/usr/bin/../share/java/kafka/commons-logging-1.2.jar:/usr/bin/../share/java/kafka/error_prone_annotations-2.10.0.jar:/usr/bin/../share/java/kafka/jaxb-api-2.3.1.jar:/usr/bin/../share/java/kafka/kafka-clients-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jackson-dataformat-csv-2.16.2.jar:/usr/bin/../share/java/kafka/jackson-annotations-2.16.2.jar:/usr/bin/../share/java/kafka/jopt-simple-5.0.4.jar:/usr/bin/../share/java/kafka/audience-annotations-0.12.0.jar:/usr/bin/../share/java/kafka/jersey-hk2-2.39.1.jar:/usr/bin/../share/java/kafka/kafka-streams-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jetty-security-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/jersey-client-2.39.1.jar:/usr/bin/../share/java/kafka/caffeine-2.9.3.jar:/usr/bin/../share/java/kafka/kafka-shell-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jetty-client-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/metrics-core-4.1.12.1.jar:/usr/bin/../share/java/kafka/pcollections-4.0.1.jar:/usr/bin/../share/java/kafka/commons-io-2.11.0.jar:/usr/bin/../share/java/kafka/scala-logging_2.13-3.9.4.jar:/usr/bin/../share/java/kafka/connect-basic-auth-extension-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jackson-databind-2.16.2.jar:/usr/bin/../share/java/kafka/kafka-log4j-appender-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jsr305-3.0.2.jar:/usr/bin/../share/java/kafka/jetty-servlet-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/trogdor-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/kafka-streams-test-utils-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jersey-container-servlet-2.39.1.jar:/usr/bin/../share/java/kafka/zookeeper-jute-3.8.4.jar:/usr/bin/../share/java/kafka/kafka-tools-api-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jakarta.ws.rs-api-2.1.6.jar:/usr/bin/../share/java/kafka/jakarta.annotation-api-1.3.5.jar:/usr/bin/../share/java/kafka/jakarta.activation-api-1.2.2.jar:/usr/bin/../share/java/kafka/kafka-server-common-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/connect-json-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jersey-server-2.39.1.jar:/usr/bin/../share/java/kafka/netty-common-4.1.110.Final.jar:/usr/bin/../share/java/kafka/kafka_2.13-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/connect-runtime-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/connect-mirror-client-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/netty-transport-native-epoll-4.1.110.Final.jar:/usr/bin/../share/java/kafka/jakarta.xml.bind-api-2.3.3.jar:/usr/bin/../share/java/kafka/kafka-storage-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jackson-module-jaxb-annotations-2.16.2.jar:/usr/bin/../share/java/kafka/zstd-jni-1.5.6-4.jar:/usr/bin/../share/java/kafka/netty-transport-classes-epoll-4.1.110.Final.jar:/usr/bin/../share/java/kafka/jersey-container-servlet-core-2.39.1.jar:/usr/bin/../share/java/kafka/hk2-utils-2.6.1.jar:/usr/bin/../share/java/kafka/scala-java8-compat_2.13-1.0.2.jar:/usr/bin/../share/java/kafka/jline-3.25.1.jar:/usr/bin/../share/java/kafka/scala-reflect-2.13.12.jar:/usr/bin/../share/java/kafka/zookeeper-3.8.4.jar:/usr/bin/../share/java/kafka/jackson-jaxrs-json-provider-2.16.2.jar:/usr/bin/../share/java/kafka/javax.activation-api-1.2.0.jar:/usr/bin/../share/java/kafka/kafka-metadata-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jetty-http-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/commons-validator-1.7.jar:/usr/bin/../share/java/kafka/commons-collections-3.2.2.jar:/usr/bin/../share/java/kafka/jose4j-0.9.4.jar:/usr/bin/../share/java/kafka/kafka-storage-api-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/netty-codec-4.1.110.Final.jar:/usr/bin/../share/java/kafka/maven-artifact-3.8.8.jar:/usr/bin/../share/java/kafka/checker-qual-3.19.0.jar:/usr/bin/../share/java/kafka/javax.servlet-api-3.1.0.jar:/usr/bin/../share/java/kafka/kafka-raft-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/jackson-module-scala_2.13-2.16.2.jar:/usr/bin/../share/java/kafka/jakarta.inject-2.6.1.jar:/usr/bin/../share/java/kafka/slf4j-reload4j-1.7.36.jar:/usr/bin/../share/java/kafka/commons-beanutils-1.9.4.jar:/usr/bin/../share/java/kafka/jetty-servlets-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/kafka-streams-scala_2.13-7.7.1-ccs.jar:/usr/bin/../share/java/kafka/kafka.jar:/usr/bin/../share/java/kafka/jakarta.validation-api-2.0.2.jar:/usr/bin/../share/java/kafka/commons-lang3-3.8.1.jar:/usr/bin/../share/java/kafka/jetty-continuation-9.4.54.v20240208.jar:/usr/bin/../share/java/kafka/rocksdbjni-7.9.2.jar:/usr/bin/../share/java/kafka/netty-transport-4.1.110.Final.jar:/usr/bin/../share/java/kafka/swagger-annotations-2.2.8.jar:/usr/bin/../share/java/kafka/jackson-datatype-jdk8-2.16.2.jar:/usr/bin/../share/java/kafka/javax.annotation-api-1.3.2.jar:/usr/bin/../share/java/kafka/argparse4j-0.7.0.jar:/usr/bin/../share/java/kafka/paranamer-2.8.jar:/usr/bin/../share/java/kafka/scala-library-2.13.12.jar:/usr/bin/../share/java/kafka/slf4j-api-1.7.36.jar:/usr/bin/../share/java/kafka/plexus-utils-3.3.1.jar:/usr/bin/../share/java/kafka/opentelemetry-proto-1.0.0-alpha.jar:/usr/bin/../share/java/kafka/javax.ws.rs-api-2.1.1.jar:/usr/bin/../share/java/confluent-telemetry/* (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:06:12 pg-master            | 2025-01-10 20:06:12,569 INFO: Connecting to zoo(172.20.0.2):2181, use_ssl: False
+2025-01-11 03:06:12 pg-master            | 2025-01-10 20:06:12,804 INFO: Zookeeper connection established, state: CONNECTED
+2025-01-11 03:06:12 pg-master            | 2025-01-10 20:06:12,861 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2025-01-11 03:06:13 pg-master            | 2025-01-10 20:06:13,349 INFO: Lock owner: None; I am postgresql0
+2025-01-11 03:06:13 pg-master            | 2025-01-10 20:06:13,406 INFO: trying to bootstrap a new cluster
+2025-01-11 03:06:13 pg-master            | The files belonging to this database system will be owned by user "postgres".
+2025-01-11 03:06:13 pg-master            | This user must also own the server process.
+2025-01-11 03:06:13 pg-master            | 
+2025-01-11 03:06:13 pg-master            | The database cluster will be initialized with locale "en_US.utf8".
+2025-01-11 03:06:13 pg-master            | The default database encoding has accordingly been set to "UTF8".
+2025-01-11 03:06:13 pg-master            | The default text search configuration will be set to "english".
+2025-01-11 03:06:13 pg-master            | 
+2025-01-11 03:06:13 pg-master            | Data page checksums are disabled.
+2025-01-11 03:06:13 pg-master            | 
+2025-01-11 03:06:13 pg-master            | creating directory /var/lib/postgresql/data/postgresql0 ... ok
+2025-01-11 03:06:13 pg-master            | creating subdirectories ... ok
+2025-01-11 03:06:13 pg-master            | selecting dynamic shared memory implementation ... posix
+2025-01-11 03:06:13 pg-master            | selecting default max_connections ... 100
+2025-01-11 03:06:13 pg-master            | selecting default shared_buffers ... 128MB
+2025-01-11 03:06:13 pg-master            | selecting default time zone ... Etc/UTC
+2025-01-11 03:06:13 pg-master            | creating configuration files ... ok
+2025-01-11 03:06:14 pg-master            | running bootstrap script ... ok
+2025-01-11 03:06:14 pg-master            | performing post-bootstrap initialization ... ok
+2025-01-11 03:06:14 pg-master            | syncing data to disk ... ok
+2025-01-11 03:06:14 pg-master            | 
+2025-01-11 03:06:14 pg-master            | 
+2025-01-11 03:08:55 pg-slave             | 2025-01-10 20:08:55,430 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,652] INFO Server environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:09:05 pg-slave             | 2025-01-10 20:09:05,447 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:09:15 pg-slave             | 2025-01-10 20:09:15,432 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:09:25 pg-slave             | 2025-01-10 20:09:25,449 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:09:35 pg-slave             | 2025-01-10 20:09:35,441 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:09:45 pg-slave             | 2025-01-10 20:09:45,427 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:09:55 pg-slave             | 2025-01-10 20:09:55,427 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:10:05 pg-slave             | 2025-01-10 20:10:05,431 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:10:15 pg-slave             | 2025-01-10 20:10:15,424 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:10:25 pg-slave             | 2025-01-10 20:10:25,422 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:10:35 pg-slave             | 2025-01-10 20:10:35,463 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:06:14 pg-master            | Success. You can now start the database server using:
+2025-01-11 03:06:14 pg-master            | 
+2025-01-11 03:06:14 pg-master            |     /usr/lib/postgresql/15/bin/pg_ctl -D /var/lib/postgresql/data/postgresql0 -l logfile start
+2025-01-11 03:06:14 pg-master            | 
+2025-01-11 03:06:14 pg-master            | initdb: warning: enabling "trust" authentication for local connections
+2025-01-11 03:06:14 pg-master            | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15,411 INFO: postmaster pid=32
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15.419 UTC [32] LOG:  starting PostgreSQL 15.9 (Debian 15.9-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15.419 UTC [32] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15.422 UTC [32] LOG:  listening on Unix socket "./.s.PGSQL.5432"
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15.430 UTC [36] LOG:  database system was shut down at 2025-01-10 20:06:14 UTC
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15.432 UTC [37] FATAL:  the database system is starting up
+2025-01-11 03:06:15 pg-master            | localhost:5432 - rejecting connections
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15.446 UTC [32] LOG:  database system is ready to accept connections
+2025-01-11 03:06:15 pg-master            | localhost:5432 - accepting connections
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15,493 INFO: establishing a new patroni heartbeat connection to postgres
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15,517 INFO: running post_bootstrap
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15,547 INFO: Reaped pid=46, exit status=0
+2025-01-11 03:10:45 pg-slave             | 2025-01-10 20:10:45,432 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:10:55 pg-slave             | 2025-01-10 20:10:55,423 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:10:58 pg-slave             | 2025-01-10 20:10:58.484 UTC [122] ERROR:  cannot execute INSERT in a read-only transaction
+2025-01-11 03:10:58 pg-slave             | 2025-01-10 20:10:58.484 UTC [122] STATEMENT:  INSERT INTO test (name, age) VALUES
+2025-01-11 03:10:58 pg-slave             | ('Alice', 30),
+2025-01-11 03:10:58 pg-slave             | ('Bob', 25),
+2025-01-11 03:10:58 pg-slave             | ('Charlie', 35);
+2025-01-11 03:11:01 pg-slave             | 2025-01-10 20:11:01.116 UTC [122] ERROR:  cannot execute INSERT in a read-only transaction
+2025-01-11 03:11:01 pg-slave             | 2025-01-10 20:11:01.116 UTC [122] STATEMENT:  INSERT INTO test (name, age) VALUES
+2025-01-11 03:11:01 pg-slave             | ('Alice', 30),
+2025-01-11 03:11:01 pg-slave             | ('Bob', 25),
+2025-01-11 03:11:01 pg-slave             | ('Charlie', 35);
+2025-01-11 03:11:05 pg-slave             | 2025-01-10 20:11:05,433 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15,548 INFO: Reaped pid=47, exit status=0
+2025-01-11 03:11:15 pg-slave             | 2025-01-10 20:11:15,431 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,652] INFO Server environment:java.io.tmpdir=/tmp (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,652] INFO Server environment:java.compiler=<NA> (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,653] INFO Server environment:os.name=Linux (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,653] INFO Server environment:os.arch=aarch64 (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,654] INFO Server environment:os.version=6.10.14-linuxkit (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,654] INFO Server environment:user.name=appuser (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,655] INFO Server environment:user.home=/home/appuser (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,655] INFO Server environment:user.dir=/home/appuser (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:11:25 pg-slave             | 2025-01-10 20:11:25,423 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:11:35 pg-slave             | 2025-01-10 20:11:35,419 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:11:39 pg-slave             | 2025-01-10 20:11:39.434 UTC [27] LOG:  restartpoint starting: time
+2025-01-11 03:11:45 pg-slave             | 2025-01-10 20:11:45,430 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:11:48 pg-slave             | 2025-01-10 20:11:48.415 UTC [27] LOG:  restartpoint complete: wrote 89 buffers (0.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=8.958 s, sync=0.012 s, total=8.982 s; sync files=48, longest=0.005 s, average=0.001 s; distance=16841 kB, estimate=16841 kB
+2025-01-11 03:11:48 pg-slave             | 2025-01-10 20:11:48.415 UTC [27] LOG:  recovery restart point at 0/3072450
+2025-01-11 03:11:48 pg-slave             | 2025-01-10 20:11:48.415 UTC [27] DETAIL:  Last completed transaction was at log time 2025-01-10 20:09:28.516+00.
+2025-01-11 03:11:55 pg-slave             | 2025-01-10 20:11:55,410 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:12:05 pg-slave             | 2025-01-10 20:12:05,420 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:12:15 pg-slave             | 2025-01-10 20:12:15,411 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:12:25 pg-slave             | 2025-01-10 20:12:25,410 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,656] INFO Server environment:os.memory.free=495MB (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,656] INFO Server environment:os.memory.max=512MB (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,656] INFO Server environment:os.memory.total=512MB (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,657] INFO zookeeper.enableEagerACLCheck = false (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,657] INFO zookeeper.digest.enabled = true (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,657] INFO zookeeper.closeSessionTxn.enabled = true (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,657] INFO zookeeper.flushDelay = 0 ms (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,658] INFO zookeeper.maxWriteQueuePollTime = 0 ms (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,659] INFO zookeeper.maxBatchSize=1000 (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,659] INFO zookeeper.intBufferStartingSizeBytes = 1024 (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,666] INFO Weighed connection throttling is disabled (org.apache.zookeeper.server.BlueThrottle)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,668] INFO minSessionTimeout set to 4000 ms (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:12:35 pg-slave             | 2025-01-10 20:12:35,429 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:12:45 pg-slave             | 2025-01-10 20:12:45,508 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:12:55 pg-slave             | 2025-01-10 20:12:55,421 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:13:05 pg-slave             | 2025-01-10 20:13:05,426 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:13:15 pg-slave             | 2025-01-10 20:13:15,441 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:13:25 pg-slave             | 2025-01-10 20:13:25,429 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:13:35 pg-slave             | 2025-01-10 20:13:35,428 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,669] INFO maxSessionTimeout set to 40000 ms (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,678] INFO getData response cache size is initialized with value 400. (org.apache.zookeeper.server.ResponseCache)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,678] INFO getChildren response cache size is initialized with value 400. (org.apache.zookeeper.server.ResponseCache)
+2025-01-11 03:13:40 pg-slave             | 2025-01-10 20:13:40.615 UTC [43] FATAL:  could not receive data from WAL stream: server closed the connection unexpectedly
+2025-01-11 03:13:40 pg-slave             | This probably means the server terminated abnormally
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,680] INFO zookeeper.pathStats.slotCapacity = 60 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,680] INFO zookeeper.pathStats.slotDuration = 15 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+2025-01-11 03:13:40 pg-slave             | before or while processing the request.
+2025-01-11 03:13:40 pg-slave             | 2025-01-10 20:13:40.618 UTC [29] LOG:  invalid record length at 0/3072538: wanted 24, got 0
+2025-01-11 03:13:40 pg-slave             | 2025-01-10 20:13:40.714 UTC [189] FATAL:  could not connect to the primary server: connection to server at "pg-master" (172.20.0.4), port 5432 failed: Connection refused
+2025-01-11 03:13:40 pg-slave             | Is the server running on that host and accepting TCP/IP connections?
+2025-01-11 03:13:40 pg-slave             | 2025-01-10 20:13:40.714 UTC [29] LOG:  waiting for WAL to become available at 0/3072550
+2025-01-11 03:13:45 pg-slave             | 2025-01-10 20:13:45,441 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,680] INFO zookeeper.pathStats.maxDepth = 6 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+2025-01-11 03:13:47 pg-slave             | 2025-01-10 20:13:47.902 UTC [192] FATAL:  could not connect to the primary server: connection to server at "pg-master" (198.18.2.149), port 5432 failed: server closed the connection unexpectedly
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,680] INFO zookeeper.pathStats.initialDelay = 5 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+2025-01-11 03:13:47 pg-slave             | This probably means the server terminated abnormally
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,680] INFO zookeeper.pathStats.delay = 5 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+2025-01-11 03:13:47 pg-slave             | before or while processing the request.
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,680] INFO zookeeper.pathStats.enabled = false (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+2025-01-11 03:13:47 pg-slave             | 2025-01-10 20:13:47.905 UTC [29] LOG:  waiting for WAL to become available at 0/3072550
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,694] INFO The max bytes for all large requests are set to 104857600 (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:06:15 pg-master            | 2025-01-10 20:06:15,566 INFO: initialized a new cluster
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,695] INFO The large request threshold is set to -1 (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,701] INFO zookeeper.enforce.auth.enabled = false (org.apache.zookeeper.server.AuthenticationHelper)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,702] INFO zookeeper.enforce.auth.schemes = [] (org.apache.zookeeper.server.AuthenticationHelper)
+2025-01-11 03:06:16 pg-master            | 2025-01-10 20:06:16,138 INFO: establishing a new patroni restapi connection to postgres
+2025-01-11 03:13:51 pg-slave             | 2025-01-10 20:13:51.432 UTC [195] FATAL:  could not connect to the primary server: connection to server at "pg-master" (198.18.2.149), port 5432 failed: server closed the connection unexpectedly
+2025-01-11 03:13:51 pg-slave             | This probably means the server terminated abnormally
+2025-01-11 03:13:51 pg-slave             | before or while processing the request.
+2025-01-11 03:13:51 pg-slave             | 2025-01-10 20:13:51.434 UTC [29] LOG:  waiting for WAL to become available at 0/3072550
+2025-01-11 03:06:23 pg-master            | 2025-01-10 20:06:23.045 UTC [34] LOG:  checkpoint starting: force wait
+2025-01-11 03:06:23 pg-master            | 2025-01-10 20:06:23.513 UTC [34] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.417 s, sync=0.003 s, total=0.468 s; sync files=6, longest=0.002 s, average=0.001 s; distance=11259 kB, estimate=11259 kB
+2025-01-11 03:06:23 pg-master            | 2025-01-10 20:06:23.513 UTC [52] WARNING:  skipping special file "./.s.PGSQL.5432"
+2025-01-11 03:06:23 pg-master            | 2025-01-10 20:06:23.527 UTC [52] WARNING:  skipping special file "./.s.PGSQL.5432"
+2025-01-11 03:06:24 pg-master            | 2025-01-10 20:06:24.469 UTC [63] ERROR:  replication slot "postgresql1" does not exist
+2025-01-11 03:06:24 pg-master            | 2025-01-10 20:06:24.469 UTC [63] STATEMENT:  START_REPLICATION SLOT "postgresql1" 0/3000000 TIMELINE 1
+2025-01-11 03:06:24 pg-master            | 2025-01-10 20:06:24.483 UTC [64] ERROR:  replication slot "postgresql1" does not exist
+2025-01-11 03:06:24 pg-master            | 2025-01-10 20:06:24.483 UTC [64] STATEMENT:  START_REPLICATION SLOT "postgresql1" 0/3000000 TIMELINE 1
+2025-01-11 03:06:25 pg-master            | 2025-01-10 20:06:25,559 INFO: Lock owner: postgresql0; I am postgresql0
+2025-01-11 03:06:25 pg-master            | 2025-01-10 20:06:25,573 INFO: Enabled synchronous replication
+2025-01-11 03:06:25 pg-master            | 2025-01-10 20:06:25,583 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:13:55 pg-slave             | 2025-01-10 20:13:55,433 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:13:56 pg-slave             | 2025-01-10 20:13:56.203 UTC [197] FATAL:  could not connect to the primary server: connection to server at "pg-master" (198.18.2.149), port 5432 failed: server closed the connection unexpectedly
+2025-01-11 03:13:56 pg-slave             | This probably means the server terminated abnormally
+2025-01-11 03:13:56 pg-slave             | before or while processing the request.
+2025-01-11 03:13:56 pg-slave             | 2025-01-10 20:13:56.204 UTC [29] LOG:  waiting for WAL to become available at 0/3072550
+2025-01-11 03:14:01 pg-slave             | 2025-01-10 20:14:01.110 UTC [200] FATAL:  could not connect to the primary server: connection to server at "pg-master" (198.18.2.149), port 5432 failed: server closed the connection unexpectedly
+2025-01-11 03:14:01 pg-slave             | This probably means the server terminated abnormally
+2025-01-11 03:14:01 pg-slave             | before or while processing the request.
+2025-01-11 03:06:35 pg-master            | 2025-01-10 20:06:35,560 INFO: Lock owner: postgresql0; I am postgresql0
+2025-01-11 03:06:35 pg-master            | 2025-01-10 20:06:35,566 INFO: Assigning synchronous standby status to ['postgresql1']
+2025-01-11 03:06:35 pg-master            | server signaled
+2025-01-11 03:06:35 pg-master            | 2025-01-10 20:06:35.573 UTC [32] LOG:  received SIGHUP, reloading configuration files
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,702] INFO Created server with tickTime 2000 ms minSessionTimeout 4000 ms maxSessionTimeout 40000 ms clientPortListenBacklog -1 datadir /var/lib/zookeeper/log/version-2 snapdir /var/lib/zookeeper/data/version-2 (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:06:35 pg-master            | 2025-01-10 20:06:35.575 UTC [32] LOG:  parameter "synchronous_standby_names" changed to "postgresql1"
+2025-01-11 03:06:35 pg-master            | 2025-01-10 20:06:35.785 UTC [67] LOG:  standby "postgresql1" is now a synchronous standby with priority 1
+2025-01-11 03:06:35 pg-master            | 2025-01-10 20:06:35.785 UTC [67] STATEMENT:  START_REPLICATION SLOT "postgresql1" 0/3000000 TIMELINE 1
+2025-01-11 03:06:37 pg-master            | 2025-01-10 20:06:37,687 INFO: Synchronous standby status assigned to ['postgresql1']
+2025-01-11 03:06:37 pg-master            | 2025-01-10 20:06:37,690 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:06:45 pg-master            | 2025-01-10 20:06:45,567 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:06:55 pg-master            | 2025-01-10 20:06:55,563 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:07:05 pg-master            | 2025-01-10 20:07:05,562 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:07:15 pg-master            | 2025-01-10 20:07:15,566 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:07:25 pg-master            | 2025-01-10 20:07:25,563 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:07:35 pg-master            | 2025-01-10 20:07:35,570 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:07:45 pg-master            | 2025-01-10 20:07:45,562 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:07:55 pg-master            | 2025-01-10 20:07:55,586 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:08:05 pg-master            | 2025-01-10 20:08:05,567 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:08:15 pg-master            | 2025-01-10 20:08:15,565 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:08:25 pg-master            | 2025-01-10 20:08:25,566 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:08:35 pg-master            | 2025-01-10 20:08:35,563 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:08:45 pg-master            | 2025-01-10 20:08:45,568 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:08:50 pg-master            | 2025-01-10 20:08:50.177 UTC [97] ERROR:  syntax error at or near ";" at character 19
+2025-01-11 03:14:01 pg-slave             | 2025-01-10 20:14:01.110 UTC [29] LOG:  waiting for WAL to become available at 0/3072550
+2025-01-11 03:14:05 pg-slave             | 2025-01-10 20:14:05,427 INFO: no action. I am (postgresql1), a secondary, and following a leader (postgresql0)
+2025-01-11 03:14:05 pg-slave             | 2025-01-10 20:14:05.657 UTC [203] FATAL:  could not connect to the primary server: connection to server at "pg-master" (198.18.2.149), port 5432 failed: server closed the connection unexpectedly
+2025-01-11 03:14:05 pg-slave             | This probably means the server terminated abnormally
+2025-01-11 03:14:05 pg-slave             | before or while processing the request.
+2025-01-11 03:14:05 pg-slave             | 2025-01-10 20:14:05.657 UTC [29] LOG:  waiting for WAL to become available at 0/3072550
+2025-01-11 03:14:10 pg-slave             | 2025-01-10 20:14:10.661 UTC [209] FATAL:  could not connect to the primary server: connection to server at "pg-master" (198.18.2.149), port 5432 failed: server closed the connection unexpectedly
+2025-01-11 03:14:10 pg-slave             | This probably means the server terminated abnormally
+2025-01-11 03:14:10 pg-slave             | before or while processing the request.
+2025-01-11 03:14:10 pg-slave             | 2025-01-10 20:14:10.661 UTC [29] LOG:  waiting for WAL to become available at 0/3072550
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12,483 WARNING: Request failed to postgresql0: GET http://pg-master:8008/patroni (HTTPConnectionPool(host='pg-master', port=8008): Max retries exceeded with url: /patroni (Caused by ReadTimeoutError("HTTPConnectionPool(host='pg-master', port=8008): Read timed out. (read timeout=2)")))
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12,504 INFO: promoted self to leader by acquiring session lock
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12.509 UTC [29] LOG:  received promote request
+2025-01-11 03:14:12 pg-slave             | server promoting
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12.510 UTC [29] LOG:  redo done at 0/3072500 system usage: CPU: user: 0.07 s, system: 0.08 s, elapsed: 468.05 s
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12.510 UTC [29] LOG:  last completed transaction was at log time 2025-01-10 20:09:28.516+00
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12.514 UTC [29] LOG:  selected new timeline ID: 2
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12.582 UTC [29] LOG:  archive recovery complete
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12.588 UTC [27] LOG:  checkpoint starting: force
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12.595 UTC [25] LOG:  database system is ready to accept connections
+2025-01-11 03:14:12 pg-slave             | 2025-01-10 20:14:12.608 UTC [27] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.001 s, total=0.020 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=15156 kB
+2025-01-11 03:14:13 pg-slave             | 2025-01-10 20:14:13,532 INFO: Lock owner: postgresql1; I am postgresql1
+2025-01-11 03:14:13 pg-slave             | 2025-01-10 20:14:13,551 INFO: Reaped pid=225, exit status=0
+2025-01-11 03:14:13 pg-slave             | 2025-01-10 20:14:13,558 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:14:23 pg-slave             | 2025-01-10 20:14:23,539 INFO: Lock owner: postgresql1; I am postgresql1
+2025-01-11 03:14:23 pg-slave             | 2025-01-10 20:14:23,554 INFO: Dropped unknown replication slot 'postgresql0'
+2025-01-11 03:14:23 pg-slave             | 2025-01-10 20:14:23,558 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,779] INFO Logging initialized @1760ms to org.eclipse.jetty.util.log.Slf4jLog (org.eclipse.jetty.util.log)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,940] WARN o.e.j.s.ServletContextHandler@229f66ed{/,null,STOPPED} contextPath ends with /* (org.eclipse.jetty.server.handler.ContextHandler)
+2025-01-11 03:14:33 pg-slave             | 2025-01-10 20:14:33,543 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:14:43 pg-slave             | 2025-01-10 20:14:43,544 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,940] WARN Empty contextPath (org.eclipse.jetty.server.handler.ContextHandler)
+2025-01-11 03:02:53 zoo                  | [2025-01-10 20:02:53,995] INFO jetty-9.4.54.v20240208; built: 2024-02-08T19:42:39.027Z; git: cef3fbd6d736a21e7d541a5db490381d95a2047d; jvm 17.0.12+7-LTS (org.eclipse.jetty.server.Server)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,100] INFO DefaultSessionIdManager workerName=node0 (org.eclipse.jetty.server.session)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,100] INFO No SessionScavenger set, using defaults (org.eclipse.jetty.server.session)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,102] INFO node0 Scavenging every 600000ms (org.eclipse.jetty.server.session)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,145] WARN ServletContext@o.e.j.s.ServletContextHandler@229f66ed{/,null,STARTING} has uncovered http methods for path: /* (org.eclipse.jetty.security.SecurityHandler)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,169] INFO Started o.e.j.s.ServletContextHandler@229f66ed{/,null,AVAILABLE} (org.eclipse.jetty.server.handler.ContextHandler)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,205] INFO Started ServerConnector@564fabc8{HTTP/1.1, (http/1.1)}{0.0.0.0:8080} (org.eclipse.jetty.server.AbstractConnector)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,205] INFO Started @2200ms (org.eclipse.jetty.server.Server)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,205] INFO Started AdminServer on address 0.0.0.0, port 8080 and command URL /commands (org.apache.zookeeper.server.admin.JettyAdminServer)
+2025-01-11 03:14:53 pg-slave             | 2025-01-10 20:14:53,560 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:15:03 pg-slave             | 2025-01-10 20:15:03,541 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:15:13 pg-slave             | 2025-01-10 20:15:13,557 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:15:23 pg-slave             | 2025-01-10 20:15:23,570 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:15:25 pg-slave             | 2025-01-10 20:15:25.009 UTC [258] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:25 pg-slave             | 2025-01-10 20:15:25.009 UTC [258] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,213] INFO Using org.apache.zookeeper.server.NIOServerCnxnFactory as server connection factory (org.apache.zookeeper.server.ServerCnxnFactory)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,218] WARN maxCnxns is not configured, using default value 0. (org.apache.zookeeper.server.ServerCnxnFactory)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,220] INFO Configuring NIO connection handler with 10s sessionless connection timeout, 2 selector thread(s), 16 worker threads, and 64 kB direct buffers. (org.apache.zookeeper.server.NIOServerCnxnFactory)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,223] INFO binding to port 0.0.0.0/0.0.0.0:2181 (org.apache.zookeeper.server.NIOServerCnxnFactory)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,262] INFO Using org.apache.zookeeper.server.watch.WatchManager as watch manager (org.apache.zookeeper.server.watch.WatchManagerFactory)
+2025-01-11 03:15:25 pg-slave             | 2025-01-10 20:15:25.009 UTC [258] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:15:25 pg-slave             | 2025-01-10 20:15:25.022 UTC [259] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:25 pg-slave             | 2025-01-10 20:15:25.022 UTC [259] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:25 pg-slave             | 2025-01-10 20:15:25.022 UTC [259] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:15:30 pg-slave             | 2025-01-10 20:15:30.039 UTC [262] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:30 pg-slave             | 2025-01-10 20:15:30.039 UTC [262] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,263] INFO Using org.apache.zookeeper.server.watch.WatchManager as watch manager (org.apache.zookeeper.server.watch.WatchManagerFactory)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,263] INFO zookeeper.snapshotSizeFactor = 0.33 (org.apache.zookeeper.server.ZKDatabase)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,264] INFO zookeeper.commitLogCount=500 (org.apache.zookeeper.server.ZKDatabase)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,290] INFO zookeeper.snapshot.compression.method = CHECKED (org.apache.zookeeper.server.persistence.SnapStream)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,290] INFO Snapshotting: 0x0 to /var/lib/zookeeper/data/version-2/snapshot.0 (org.apache.zookeeper.server.persistence.FileTxnSnapLog)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,297] INFO Snapshot loaded in 34 ms, highest zxid is 0x0, digest is 1371985504 (org.apache.zookeeper.server.ZKDatabase)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,300] INFO Snapshotting: 0x0 to /var/lib/zookeeper/data/version-2/snapshot.0 (org.apache.zookeeper.server.persistence.FileTxnSnapLog)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,308] INFO Snapshot taken in 7 ms (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,363] INFO PrepRequestProcessor (sid:0) started, reconfigEnabled=false (org.apache.zookeeper.server.PrepRequestProcessor)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,364] INFO zookeeper.request_throttler.shutdownTimeout = 10000 ms (org.apache.zookeeper.server.RequestThrottler)
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,423] INFO Using checkIntervalMs=60000 maxPerMinute=10000 maxNeverUsedIntervalMs=0 (org.apache.zookeeper.server.ContainerManager)
+2025-01-11 03:15:30 pg-slave             | 2025-01-10 20:15:30.039 UTC [262] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:08:50 pg-master            | 2025-01-10 20:08:50.177 UTC [97] STATEMENT:  CREATE TABLE test
+2025-01-11 03:15:33 pg-slave             | 2025-01-10 20:15:33,541 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:15:35 pg-slave             | 2025-01-10 20:15:35.052 UTC [264] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:08:50 pg-master            | ;
+2025-01-11 03:08:54 pg-master            | 2025-01-10 20:08:54.351 UTC [97] ERROR:  syntax error at or near ";" at character 18
+2025-01-11 03:08:54 pg-master            | 2025-01-10 20:08:54.351 UTC [97] STATEMENT:  CREATE TABLE test;
+2025-01-11 03:08:55 pg-master            | 2025-01-10 20:08:55,572 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:09:05 pg-master            | 2025-01-10 20:09:05,571 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:09:15 pg-master            | 2025-01-10 20:09:15,566 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:09:25 pg-master            | 2025-01-10 20:09:25,584 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:09:35 pg-master            | 2025-01-10 20:09:35,582 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:09:45 pg-master            | 2025-01-10 20:09:45,563 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:09:55 pg-master            | 2025-01-10 20:09:55,583 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:10:05 pg-master            | 2025-01-10 20:10:05,564 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:10:15 pg-master            | 2025-01-10 20:10:15,553 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:10:25 pg-master            | 2025-01-10 20:10:25,566 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:10:35 pg-master            | 2025-01-10 20:10:35,614 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:10:45 pg-master            | 2025-01-10 20:10:45,561 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:10:55 pg-master            | 2025-01-10 20:10:55,580 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:02:54 zoo                  | [2025-01-10 20:02:54,425] INFO ZooKeeper audit is disabled. (org.apache.zookeeper.audit.ZKAuditProvider)
+2025-01-11 03:06:12 zoo                  | [2025-01-10 20:06:12,761] INFO Creating new log file: log.1 (org.apache.zookeeper.server.persistence.FileTxnLog)
+2025-01-11 03:13:40 zoo                  | [2025-01-10 20:13:40,661] INFO Unable to read additional data from client, it probably closed the socket: address = /172.20.0.4:41094, session = 0x100006d969f0001 (org.apache.zookeeper.server.NIOServerCnxn)
+2025-01-11 03:14:10 zoo                  | [2025-01-10 20:14:10,380] INFO Expiring session 0x100006d969f0001, timeout of 30000ms exceeded (org.apache.zookeeper.server.ZooKeeperServer)
+2025-01-11 03:11:05 pg-master            | 2025-01-10 20:11:05,577 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:11:15 pg-master            | 2025-01-10 20:11:15,559 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:11:23 pg-master            | 2025-01-10 20:11:23.629 UTC [34] LOG:  checkpoint starting: time
+2025-01-11 03:11:25 pg-master            | 2025-01-10 20:11:25,569 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:11:32 pg-master            | 2025-01-10 20:11:32.620 UTC [34] LOG:  checkpoint complete: wrote 88 buffers (0.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=8.969 s, sync=0.011 s, total=8.992 s; sync files=48, longest=0.005 s, average=0.001 s; distance=16841 kB, estimate=16841 kB
+2025-01-11 03:11:35 pg-master            | 2025-01-10 20:11:35,561 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:15:35 pg-slave             | 2025-01-10 20:15:35.052 UTC [264] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:11:45 pg-master            | 2025-01-10 20:11:45,572 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:11:55 pg-master            | 2025-01-10 20:11:55,552 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:12:05 pg-master            | 2025-01-10 20:12:05,558 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:12:15 pg-master            | 2025-01-10 20:12:15,552 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:12:25 pg-master            | 2025-01-10 20:12:25,551 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:12:35 pg-master            | 2025-01-10 20:12:35,560 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:12:45 pg-master            | 2025-01-10 20:12:45,595 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:12:55 pg-master            | 2025-01-10 20:12:55,560 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:13:05 pg-master            | 2025-01-10 20:13:05,555 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:13:15 pg-master            | 2025-01-10 20:13:15,600 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:13:25 pg-master            | 2025-01-10 20:13:25,624 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:13:35 pg-master            | 2025-01-10 20:13:35,559 INFO: no action. I am (postgresql0), the leader with the lock
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,253 INFO: Connecting to zoo(172.20.0.2):2181, use_ssl: False
+2025-01-11 03:15:35 pg-slave             | 2025-01-10 20:15:35.052 UTC [264] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:15:40 pg-slave             | 2025-01-10 20:15:40.049 UTC [267] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:40 pg-slave             | 2025-01-10 20:15:40.049 UTC [267] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,272 INFO: Zookeeper connection established, state: CONNECTED
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,284 INFO: No PostgreSQL configuration items changed, nothing to reload.
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,287 INFO: Reaped pid=12, exit status=0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,300 INFO: Reaped pid=15, exit status=0
+2025-01-11 03:15:40 pg-slave             | 2025-01-10 20:15:40.049 UTC [267] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:15:43 pg-slave             | 2025-01-10 20:15:43,563 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:15:45 pg-slave             | 2025-01-10 20:15:45.065 UTC [270] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:45 pg-slave             | 2025-01-10 20:15:45.065 UTC [270] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:45 pg-slave             | 2025-01-10 20:15:45.065 UTC [270] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,301 WARNING: Postgresql is not running.
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,301 INFO: Lock owner: postgresql1; I am postgresql0
+2025-01-11 03:15:50 pg-slave             | 2025-01-10 20:15:50.068 UTC [272] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:50 pg-slave             | 2025-01-10 20:15:50.068 UTC [272] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:50 pg-slave             | 2025-01-10 20:15:50.068 UTC [272] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:15:53 pg-slave             | 2025-01-10 20:15:53,547 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:15:55 pg-slave             | 2025-01-10 20:15:55.079 UTC [275] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:55 pg-slave             | 2025-01-10 20:15:55.079 UTC [275] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:55 pg-slave             | 2025-01-10 20:15:55.079 UTC [275] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:16:00 pg-slave             | 2025-01-10 20:16:00.066 UTC [278] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:16:00 pg-slave             | 2025-01-10 20:16:00.066 UTC [278] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:16:00 pg-slave             | 2025-01-10 20:16:00.066 UTC [278] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:16:03 pg-slave             | 2025-01-10 20:16:03,551 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:16:05 pg-slave             | 2025-01-10 20:16:05.068 UTC [280] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:16:05 pg-slave             | 2025-01-10 20:16:05.068 UTC [280] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:16:05 pg-slave             | 2025-01-10 20:16:05.068 UTC [280] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,302 INFO: Reaped pid=16, exit status=0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,302 INFO: pg_controldata:
+2025-01-11 03:15:23 pg-master            |   pg_control version number: 1300
+2025-01-11 03:15:23 pg-master            |   Catalog version number: 202209061
+2025-01-11 03:15:23 pg-master            |   Database system identifier: 7458380677278396439
+2025-01-11 03:15:23 pg-master            |   Database cluster state: in production
+2025-01-11 03:15:23 pg-master            |   pg_control last modified: Fri Jan 10 20:11:32 2025
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint location: 0/3072488
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's REDO location: 0/3072450
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's REDO WAL file: 000000010000000000000003
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's TimeLineID: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's PrevTimeLineID: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's full_page_writes: on
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's NextXID: 0:741
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's NextOID: 24576
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's NextMultiXactId: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's NextMultiOffset: 0
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestXID: 717
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestXID's DB: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestActiveXID: 741
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestMultiXid: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestMulti's DB: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestCommitTsXid: 0
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's newestCommitTsXid: 0
+2025-01-11 03:15:23 pg-master            |   Time of latest checkpoint: Fri Jan 10 20:11:23 2025
+2025-01-11 03:15:23 pg-master            |   Fake LSN counter for unlogged rels: 0/3E8
+2025-01-11 03:15:23 pg-master            |   Minimum recovery ending location: 0/0
+2025-01-11 03:15:23 pg-master            |   Min recovery ending loc's timeline: 0
+2025-01-11 03:15:23 pg-master            |   Backup start location: 0/0
+2025-01-11 03:15:23 pg-master            |   Backup end location: 0/0
+2025-01-11 03:15:23 pg-master            |   End-of-backup record required: no
+2025-01-11 03:15:23 pg-master            |   wal_level setting: replica
+2025-01-11 03:15:23 pg-master            |   wal_log_hints setting: on
+2025-01-11 03:15:23 pg-master            |   max_connections setting: 100
+2025-01-11 03:15:23 pg-master            |   max_worker_processes setting: 8
+2025-01-11 03:15:23 pg-master            |   max_wal_senders setting: 10
+2025-01-11 03:15:23 pg-master            |   max_prepared_xacts setting: 0
+2025-01-11 03:15:23 pg-master            |   max_locks_per_xact setting: 64
+2025-01-11 03:15:23 pg-master            |   track_commit_timestamp setting: off
+2025-01-11 03:15:23 pg-master            |   Maximum data alignment: 8
+2025-01-11 03:15:23 pg-master            |   Database block size: 8192
+2025-01-11 03:15:23 pg-master            |   Blocks per segment of large relation: 131072
+2025-01-11 03:15:23 pg-master            |   WAL block size: 8192
+2025-01-11 03:15:23 pg-master            |   Bytes per WAL segment: 16777216
+2025-01-11 03:15:23 pg-master            |   Maximum length of identifiers: 64
+2025-01-11 03:15:23 pg-master            |   Maximum columns in an index: 32
+2025-01-11 03:15:23 pg-master            |   Maximum size of a TOAST chunk: 1996
+2025-01-11 03:15:23 pg-master            |   Size of a large-object chunk: 2048
+2025-01-11 03:15:23 pg-master            |   Date/time type storage: 64-bit integers
+2025-01-11 03:15:23 pg-master            |   Float8 argument passing: by value
+2025-01-11 03:15:23 pg-master            |   Data page checksum version: 0
+2025-01-11 03:15:23 pg-master            |   Mock authentication nonce: 3e48de0eedcd72b8786360a5d8dc3de7614750af84d0fe3b2242e8c0889a0865
+2025-01-11 03:15:23 pg-master            | 
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,322 INFO: Reaped pid=18, exit status=0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,326 INFO: doing crash recovery in a single user mode
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,679 WARNING: Postgresql is not running.
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,679 INFO: Lock owner: postgresql1; I am postgresql0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,680 INFO: Reaped pid=23, exit status=0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,680 INFO: pg_controldata:
+2025-01-11 03:15:23 pg-master            |   pg_control version number: 1300
+2025-01-11 03:15:23 pg-master            |   Catalog version number: 202209061
+2025-01-11 03:15:23 pg-master            |   Database system identifier: 7458380677278396439
+2025-01-11 03:15:23 pg-master            |   Database cluster state: shut down
+2025-01-11 03:15:23 pg-master            |   pg_control last modified: Fri Jan 10 20:15:23 2025
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint location: 0/4000028
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's REDO location: 0/4000028
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's REDO WAL file: 000000010000000000000004
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's TimeLineID: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's PrevTimeLineID: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's full_page_writes: on
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's NextXID: 0:741
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's NextOID: 24576
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's NextMultiXactId: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's NextMultiOffset: 0
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestXID: 717
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestXID's DB: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestActiveXID: 0
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestMultiXid: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestMulti's DB: 1
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's oldestCommitTsXid: 0
+2025-01-11 03:15:23 pg-master            |   Latest checkpoint's newestCommitTsXid: 0
+2025-01-11 03:15:23 pg-master            |   Time of latest checkpoint: Fri Jan 10 20:15:23 2025
+2025-01-11 03:15:23 pg-master            |   Fake LSN counter for unlogged rels: 0/3E8
+2025-01-11 03:15:23 pg-master            |   Minimum recovery ending location: 0/0
+2025-01-11 03:15:23 pg-master            |   Min recovery ending loc's timeline: 0
+2025-01-11 03:15:23 pg-master            |   Backup start location: 0/0
+2025-01-11 03:15:23 pg-master            |   Backup end location: 0/0
+2025-01-11 03:15:23 pg-master            |   End-of-backup record required: no
+2025-01-11 03:15:23 pg-master            |   wal_level setting: replica
+2025-01-11 03:15:23 pg-master            |   wal_log_hints setting: on
+2025-01-11 03:15:23 pg-master            |   max_connections setting: 100
+2025-01-11 03:15:23 pg-master            |   max_worker_processes setting: 8
+2025-01-11 03:15:23 pg-master            |   max_wal_senders setting: 10
+2025-01-11 03:15:23 pg-master            |   max_prepared_xacts setting: 0
+2025-01-11 03:15:23 pg-master            |   max_locks_per_xact setting: 64
+2025-01-11 03:15:23 pg-master            |   track_commit_timestamp setting: off
+2025-01-11 03:15:23 pg-master            |   Maximum data alignment: 8
+2025-01-11 03:15:23 pg-master            |   Database block size: 8192
+2025-01-11 03:15:23 pg-master            |   Blocks per segment of large relation: 131072
+2025-01-11 03:15:23 pg-master            |   WAL block size: 8192
+2025-01-11 03:15:23 pg-master            |   Bytes per WAL segment: 16777216
+2025-01-11 03:15:23 pg-master            |   Maximum length of identifiers: 64
+2025-01-11 03:15:23 pg-master            |   Maximum columns in an index: 32
+2025-01-11 03:15:23 pg-master            |   Maximum size of a TOAST chunk: 1996
+2025-01-11 03:15:23 pg-master            |   Size of a large-object chunk: 2048
+2025-01-11 03:15:23 pg-master            |   Date/time type storage: 64-bit integers
+2025-01-11 03:15:23 pg-master            |   Float8 argument passing: by value
+2025-01-11 03:15:23 pg-master            |   Data page checksum version: 0
+2025-01-11 03:15:23 pg-master            |   Mock authentication nonce: 3e48de0eedcd72b8786360a5d8dc3de7614750af84d0fe3b2242e8c0889a0865
+2025-01-11 03:15:23 pg-master            | 
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,686 INFO: Lock owner: postgresql1; I am postgresql0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,694 INFO: Reaped pid=25, exit status=0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,695 INFO: Reaped pid=26, exit status=0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,695 INFO: Local timeline=1 lsn=0/4000028
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,720 INFO: primary_timeline=2
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,720 INFO: primary: history=10/3072538---XXno recovery target specified
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,727 INFO: Reaped pid=28, exit status=0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,728 INFO: Reaped pid=29, exit status=0
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,729 INFO: running pg_rewind from postgresql1
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,763 INFO: Trying to archive 000000010000000000000003: mkdir -p /tmp/wal_archive && test ! -f /tmp/wal_archive/000000010000000000000003 && cp /var/lib/postgresql/data/postgresql0/pg_wal/000000010000000000000003 /tmp/wal_archive/000000010000000000000003
+2025-01-11 03:15:23 pg-master            | 2025-01-10 20:15:23,816 INFO: running pg_rewind from dbname=postgres user=postgres host=pg-slave port=5432 target_session_attrs=read-write
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,709 INFO: pg_rewind exit code=1
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,710 INFO:  stdout=
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,710 INFO:  stderr=pg_rewind: servers diverged at WAL location 0/3072538 on timeline 1
+2025-01-11 03:15:24 pg-master            | pg_rewind: rewinding from last common checkpoint at 0/3072488 on timeline 1
+2025-01-11 03:15:24 pg-master            | pg_rewind: error: could not open target file "/var/lib/postgresql/data/postgresql0/.s.PGSQL.5432": No such device or address
+2025-01-11 03:15:24 pg-master            | 
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,720 ERROR: Failed to rewind from healthy primary: postgresql1
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,727 WARNING: Postgresql is not running.
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,727 INFO: Lock owner: postgresql1; I am postgresql0
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,729 INFO: Reaped pid=38, exit status=0
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,729 INFO: pg_controldata:
+2025-01-11 03:15:24 pg-master            |   pg_control version number: 1300
+2025-01-11 03:15:24 pg-master            |   Catalog version number: 202209061
+2025-01-11 03:15:24 pg-master            |   Database system identifier: 7458380677278396439
+2025-01-11 03:15:24 pg-master            |   Database cluster state: shut down
+2025-01-11 03:15:24 pg-master            |   pg_control last modified: Fri Jan 10 20:15:23 2025
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint location: 0/4000028
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's REDO location: 0/4000028
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's REDO WAL file: 000000010000000000000004
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's TimeLineID: 1
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's PrevTimeLineID: 1
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's full_page_writes: on
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's NextXID: 0:741
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's NextOID: 24576
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's NextMultiXactId: 1
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's NextMultiOffset: 0
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's oldestXID: 717
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's oldestXID's DB: 1
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's oldestActiveXID: 0
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's oldestMultiXid: 1
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's oldestMulti's DB: 1
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's oldestCommitTsXid: 0
+2025-01-11 03:15:24 pg-master            |   Latest checkpoint's newestCommitTsXid: 0
+2025-01-11 03:15:24 pg-master            |   Time of latest checkpoint: Fri Jan 10 20:15:23 2025
+2025-01-11 03:15:24 pg-master            |   Fake LSN counter for unlogged rels: 0/3E8
+2025-01-11 03:15:24 pg-master            |   Minimum recovery ending location: 0/0
+2025-01-11 03:15:24 pg-master            |   Min recovery ending loc's timeline: 0
+2025-01-11 03:15:24 pg-master            |   Backup start location: 0/0
+2025-01-11 03:15:24 pg-master            |   Backup end location: 0/0
+2025-01-11 03:15:24 pg-master            |   End-of-backup record required: no
+2025-01-11 03:15:24 pg-master            |   wal_level setting: replica
+2025-01-11 03:15:24 pg-master            |   wal_log_hints setting: on
+2025-01-11 03:15:24 pg-master            |   max_connections setting: 100
+2025-01-11 03:15:24 pg-master            |   max_worker_processes setting: 8
+2025-01-11 03:15:24 pg-master            |   max_wal_senders setting: 10
+2025-01-11 03:15:24 pg-master            |   max_prepared_xacts setting: 0
+2025-01-11 03:15:24 pg-master            |   max_locks_per_xact setting: 64
+2025-01-11 03:15:24 pg-master            |   track_commit_timestamp setting: off
+2025-01-11 03:15:24 pg-master            |   Maximum data alignment: 8
+2025-01-11 03:15:24 pg-master            |   Database block size: 8192
+2025-01-11 03:15:24 pg-master            |   Blocks per segment of large relation: 131072
+2025-01-11 03:15:24 pg-master            |   WAL block size: 8192
+2025-01-11 03:15:24 pg-master            |   Bytes per WAL segment: 16777216
+2025-01-11 03:15:24 pg-master            |   Maximum length of identifiers: 64
+2025-01-11 03:15:24 pg-master            |   Maximum columns in an index: 32
+2025-01-11 03:15:24 pg-master            |   Maximum size of a TOAST chunk: 1996
+2025-01-11 03:15:24 pg-master            |   Size of a large-object chunk: 2048
+2025-01-11 03:15:24 pg-master            |   Date/time type storage: 64-bit integers
+2025-01-11 03:15:24 pg-master            |   Float8 argument passing: by value
+2025-01-11 03:15:24 pg-master            |   Data page checksum version: 0
+2025-01-11 03:15:24 pg-master            |   Mock authentication nonce: 3e48de0eedcd72b8786360a5d8dc3de7614750af84d0fe3b2242e8c0889a0865
+2025-01-11 03:15:24 pg-master            | 
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,735 INFO: Lock owner: postgresql1; I am postgresql0
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,736 INFO: starting as a secondary
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24.987 UTC [44] LOG:  starting PostgreSQL 15.9 (Debian 15.9-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24.987 UTC [44] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24.989 UTC [44] LOG:  listening on Unix socket "./.s.PGSQL.5432"
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24.992 UTC [47] LOG:  database system was shut down at 2025-01-10 20:15:23 UTC
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24.992 UTC [47] LOG:  entering standby mode
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24,994 INFO: postmaster pid=44
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24.995 UTC [47] LOG:  consistent recovery state reached at 0/40000A0
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24.995 UTC [47] LOG:  invalid record length at 0/40000A0: wanted 24, got 0
+2025-01-11 03:15:24 pg-master            | 2025-01-10 20:15:24.995 UTC [44] LOG:  database system is ready to accept read-only connections
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25.005 UTC [50] LOG:  fetching timeline history file for timeline 2 from primary server
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25.009 UTC [50] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:25 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25.011 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:15:25 pg-master            | localhost:5432 - accepting connections
+2025-01-11 03:15:25 pg-master            | localhost:5432 - accepting connections
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25.022 UTC [55] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:25 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25.022 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25.022 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25,028 INFO: Lock owner: postgresql1; I am postgresql0
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25,029 INFO: establishing a new patroni heartbeat connection to postgres
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25,057 INFO: no action. I am (postgresql0), a secondary, and following a leader (postgresql1)
+2025-01-11 03:15:25 pg-master            | 2025-01-10 20:15:25,663 INFO: establishing a new patroni restapi connection to postgres
+2025-01-11 03:15:30 pg-master            | 2025-01-10 20:15:30.039 UTC [66] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:30 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:30 pg-master            | 2025-01-10 20:15:30.039 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:15:30 pg-master            | 2025-01-10 20:15:30.039 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:15:35 pg-master            | 2025-01-10 20:15:35.052 UTC [71] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:35 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:35 pg-master            | 2025-01-10 20:15:35.053 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:15:35 pg-master            | 2025-01-10 20:15:35.053 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:15:35 pg-master            | 2025-01-10 20:15:35,062 INFO: no action. I am (postgresql0), a secondary, and following a leader (postgresql1)
+2025-01-11 03:15:40 pg-master            | 2025-01-10 20:15:40.049 UTC [75] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:40 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:40 pg-master            | 2025-01-10 20:15:40.050 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:15:40 pg-master            | 2025-01-10 20:15:40.050 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:15:45 pg-master            | 2025-01-10 20:15:45,064 INFO: no action. I am (postgresql0), a secondary, and following a leader (postgresql1)
+2025-01-11 03:15:45 pg-master            | 2025-01-10 20:15:45.066 UTC [80] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:45 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:45 pg-master            | 2025-01-10 20:15:45.066 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:15:45 pg-master            | 2025-01-10 20:15:45.066 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:15:50 pg-master            | 2025-01-10 20:15:50.068 UTC [86] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:50 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:50 pg-master            | 2025-01-10 20:15:50.069 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:15:50 pg-master            | 2025-01-10 20:15:50.069 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:15:55 pg-master            | 2025-01-10 20:15:55,069 INFO: no action. I am (postgresql0), a secondary, and following a leader (postgresql1)
+2025-01-11 03:15:55 pg-master            | 2025-01-10 20:15:55.079 UTC [89] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:15:55 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:15:55 pg-master            | 2025-01-10 20:15:55.081 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:15:55 pg-master            | 2025-01-10 20:15:55.081 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:15:59 pg-master            | 2025-01-10 20:15:59.085 UTC [94] ERROR:  cannot execute INSERT in a read-only transaction
+2025-01-11 03:15:59 pg-master            | 2025-01-10 20:15:59.085 UTC [94] STATEMENT:  INSERT INTO test (name, age) VALUES
+2025-01-11 03:15:59 pg-master            | ('Alice', 30),
+2025-01-11 03:15:59 pg-master            | ('Bob', 25),
+2025-01-11 03:15:59 pg-master            | ('Charlie', 35);
+2025-01-11 03:16:00 pg-master            | 2025-01-10 20:16:00.066 UTC [97] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:16:00 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:16:00 pg-master            | 2025-01-10 20:16:00.066 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:16:00 pg-master            | 2025-01-10 20:16:00.066 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:16:05 pg-master            | 2025-01-10 20:16:05,044 INFO: no action. I am (postgresql0), a secondary, and following a leader (postgresql1)
+2025-01-11 03:16:05 pg-master            | 2025-01-10 20:16:05.068 UTC [103] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:16:05 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:16:05 pg-master            | 2025-01-10 20:16:05.069 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:16:05 pg-master            | 2025-01-10 20:16:05.069 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:16:10 pg-slave             | 2025-01-10 20:16:10.088 UTC [283] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:16:10 pg-slave             | 2025-01-10 20:16:10.088 UTC [283] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:16:10 pg-slave             | 2025-01-10 20:16:10.088 UTC [283] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:16:10 pg-master            | 2025-01-10 20:16:10.088 UTC [106] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:16:10 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:16:10 pg-master            | 2025-01-10 20:16:10.089 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:16:10 pg-master            | 2025-01-10 20:16:10.089 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
+2025-01-11 03:16:13 pg-slave             | 2025-01-10 20:16:13,551 INFO: no action. I am (postgresql1), the leader with the lock
+2025-01-11 03:16:15 pg-master            | 2025-01-10 20:16:15,067 INFO: no action. I am (postgresql0), a secondary, and following a leader (postgresql1)
+2025-01-11 03:16:15 pg-slave             | 2025-01-10 20:16:15.089 UTC [287] ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:16:15 pg-slave             | 2025-01-10 20:16:15.089 UTC [287] DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:16:15 pg-slave             | 2025-01-10 20:16:15.089 UTC [287] STATEMENT:  START_REPLICATION SLOT "postgresql0" 0/4000000 TIMELINE 1
+2025-01-11 03:16:15 pg-master            | 2025-01-10 20:16:15.089 UTC [111] FATAL:  could not start WAL streaming: ERROR:  requested starting point 0/4000000 on timeline 1 is not in this server's history
+2025-01-11 03:16:15 pg-master            | DETAIL:  This server's history forked from timeline 1 at 0/3072538.
+2025-01-11 03:16:15 pg-master            | 2025-01-10 20:16:15.090 UTC [47] LOG:  new timeline 2 forked off current database system timeline 1 before current recovery point 0/40000A0
+2025-01-11 03:16:15 pg-master            | 2025-01-10 20:16:15.090 UTC [47] LOG:  waiting for WAL to become available at 0/40000B8
